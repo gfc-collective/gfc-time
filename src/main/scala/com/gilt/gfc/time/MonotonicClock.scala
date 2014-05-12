@@ -1,4 +1,4 @@
-package com.giltgroupe.util.time
+package com.gilt.gfc.time
 
 /**
  * Defines a clock which has essentially millisecond accuracy, but which returns times in nanoseconds so that
@@ -20,9 +20,6 @@ package com.giltgroupe.util.time
  *
  * Note that this clock will stop working at Sat Apr 12 00:47:16 IST 2262. If Gilt is still a viable venture
  * 250 years from now, and still depending on this code, accept my humble apologies. :)
- *
- * @author Eric Bowman
- * @since 11/20/12 9:56 PM
  */
 trait MonotonicClock {
   private [this] var counter = 0

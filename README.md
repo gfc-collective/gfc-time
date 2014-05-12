@@ -1,6 +1,6 @@
 # gfc-time
 
-A library that icontains time and timestamp related utility classes. Part of the gilt foundation classes.
+A library that contains time related scala utility classes. Part of the gilt foundation classes.
 
 ## License
 Copyright 2014 Gilt Groupe, Inc.

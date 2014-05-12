@@ -1,10 +1,10 @@
-package com.giltgroupe.util.time
+package com.gilt.gfc.time
 
+import java.util.concurrent.CopyOnWriteArraySet
+import java.util.concurrent.atomic.{AtomicLong, AtomicInteger}
+import scala.collection.JavaConverters._
 import org.scalatest.FunSuite
 import org.scalatest.matchers.ShouldMatchers
-import java.util
-import scala.collection.JavaConverters._
-import util.concurrent.atomic.{AtomicLong, AtomicInteger}
 
 
 /**
@@ -16,7 +16,7 @@ import util.concurrent.atomic.{AtomicLong, AtomicInteger}
 class MonoticClockTest extends FunSuite with ShouldMatchers {
 
   test("Clock never returns the same value twice") {
-    val seen = new util.concurrent.CopyOnWriteArraySet[Long]().asScala
+    val seen = new CopyOnWriteArraySet[Long]().asScala
     (1 to 10000).par.foreach { _ =>
       val now = MonotonicClock.currentTimeNanos()
       seen should not contain(now)

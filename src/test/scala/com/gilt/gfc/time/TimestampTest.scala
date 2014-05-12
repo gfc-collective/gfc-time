@@ -1,10 +1,10 @@
-package com.giltgroupe.util
+package com.gilt.gfc.time
 
 import java.sql.{Timestamp => SqlTimestamp}
 import java.util.Date
+import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.testng.TestNGSuite
 import org.testng.annotations.Test
-import org.scalatest.matchers.ShouldMatchers
 
 /**
  * Document Me.

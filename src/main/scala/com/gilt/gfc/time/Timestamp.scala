@@ -1,4 +1,4 @@
-package com.giltgroupe.util
+package com.gilt.gfc.time
 
 import java.lang.{Long => JLong}
 import java.sql.{Timestamp => SqlTimestamp}

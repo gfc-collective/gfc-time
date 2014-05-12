@@ -4,10 +4,10 @@ organization := "com.gilt"
 
 scalaVersion := "2.10.4"
 
-crossScalaVersions := Seq("2.10.4", "2.9.2", "2.9.1")
+crossScalaVersions := Seq("2.10.4", "2.9.1", "2.9.2", "2.9.3")
 
 libraryDependencies ++= Seq(
-  "org.testng" % "testng" % "6.8.8" % "test",
+  "org.testng" % "testng" % "6.0" % "test",
   "org.scalatest" %% "scalatest" % "1.9.2" % "test",
   "org.scalacheck" %% "scalacheck" % "1.10.1" % "test" 
 )
