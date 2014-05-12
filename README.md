@@ -1,6 +1,6 @@
-# gilt-utils
+# gfc-time
 
-A scala library with lots of little helper and utility classes.
+A library that icontains time and timestamp related utility classes. Part of the gilt foundation classes.
 
 ## License
 Copyright 2014 Gilt Groupe, Inc.

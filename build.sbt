@@ -1,12 +1,14 @@
-name := "gilt-utils"
+name := "gfc-time"
 
 organization := "com.gilt"
 
 scalaVersion := "2.10.4"
 
+crossScalaVersions := Seq("2.10.4", "2.9.2", "2.9.1")
+
 libraryDependencies ++= Seq(
-  "org.testng" % "testng" % "6.0" % "test",
-  "org.scalatest" %% "scalatest" % "1.9.1" % "test",
+  "org.testng" % "testng" % "6.8.8" % "test",
+  "org.scalatest" %% "scalatest" % "1.9.2" % "test",
   "org.scalacheck" %% "scalacheck" % "1.10.1" % "test" 
 )
 
@@ -24,14 +26,14 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gilt/gilt-utils/master/LICENSE"))
+licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gilt/gfc-time/master/LICENSE"))
 
-homepage := Some(url("https://github.com/gilt/gilt-utils"))
+homepage := Some(url("https://github.com/gilt/gfc-time"))
 
 pomExtra := (
   <scm>
-    <url>https://github.com/gilt/gilt-utils.git</url>
-    <connection>scm:git:git@github.com:gilt/gilt-utils.git</connection>
+    <url>https://github.com/gilt/gfc-time.git</url>
+    <connection>scm:git:git@github.com:gilt/gfc-time.git</connection>
   </scm>
   <developers>
     <developer>
