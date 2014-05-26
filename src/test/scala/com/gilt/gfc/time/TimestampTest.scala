@@ -6,13 +6,6 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.testng.TestNGSuite
 import org.testng.annotations.Test
 
-/**
- * Document Me.
- *
- * @author Eric Bowman
- * @since 17/09/2011 08:51
- */
-
 class TimestampTest extends TestNGSuite with ShouldMatchers {
 
   @Test

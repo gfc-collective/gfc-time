@@ -9,9 +9,6 @@ import org.scalatest.matchers.ShouldMatchers
 
 /**
  * Confirms that a bunch of threads hitting the MonotonicClock concurrently never see the same value.
- *
- * @author Eric Bowman
- * @since 11/20/12 10:03 PM
  */
 class MonoticClockTest extends FunSuite with ShouldMatchers {
 
