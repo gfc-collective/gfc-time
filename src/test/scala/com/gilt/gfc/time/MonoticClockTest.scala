@@ -3,14 +3,13 @@ package com.gilt.gfc.time
 import java.util.concurrent.CopyOnWriteArraySet
 import java.util.concurrent.atomic.{AtomicLong, AtomicInteger}
 import scala.collection.JavaConverters._
-import org.scalatest.FunSuite
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.{FunSuite, Matchers}
 
 
 /**
  * Confirms that a bunch of threads hitting the MonotonicClock concurrently never see the same value.
  */
-class MonoticClockTest extends FunSuite with ShouldMatchers {
+class MonoticClockTest extends FunSuite with Matchers {
 
   test("Clock never returns the same value twice") {
     val seen = new CopyOnWriteArraySet[Long]().asScala

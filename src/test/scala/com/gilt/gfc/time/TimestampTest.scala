@@ -2,14 +2,11 @@ package com.gilt.gfc.time
 
 import java.sql.{Timestamp => SqlTimestamp}
 import java.util.Date
-import org.scalatest.matchers.ShouldMatchers
-import org.scalatest.testng.TestNGSuite
-import org.testng.annotations.Test
+import org.scalatest.{FunSuite, Matchers}
 
-class TimestampTest extends TestNGSuite with ShouldMatchers {
+class TimestampTest extends FunSuite with Matchers {
 
-  @Test
-  def testBasics() {
+  test("Basics") {
     Timestamp.setArtificialNow(0);  // disable anything somebody else may have turned on
     val before = new Timestamp(new Date)
     Thread.sleep(1)
@@ -33,8 +30,7 @@ class TimestampTest extends TestNGSuite with ShouldMatchers {
     assert (before == before.toDate)
   }
 
-  @Test
-  def testEquals {
+  test("Equals") {
     val before = new Timestamp(123456L)
     val after  = new Timestamp(654321L)
     assert(!before.equals(123456L)) // equals does not compare with other types
@@ -51,8 +47,7 @@ class TimestampTest extends TestNGSuite with ShouldMatchers {
     assert(!before.equals(new AnyRef))
   }
 
-  @Test
-  def testPlusAndMinus {
+  test("Plus and minus") {
     Timestamp(100) + 200 should be(Timestamp(300))
     Timestamp(300) - 200 should be(Timestamp(100))
     Timestamp(100) - 200 should be(Timestamp(-100))
@@ -66,8 +61,7 @@ class TimestampTest extends TestNGSuite with ShouldMatchers {
     -Timestamp(123) should be(Timestamp(-123))
   }
 
-  @Test
-  def testLogicFunctions {
+  test("Logic functions") {
     Timestamp(100) > 200 should be(false)
     Timestamp(100) > 100 should be(false)
     Timestamp(200) > 100 should be(true)
@@ -120,8 +114,7 @@ class TimestampTest extends TestNGSuite with ShouldMatchers {
     Timestamp(200) == null should be(false)
   }
 
-  @Test
-  def testArtificialNowClosure {
+  test("ArtificialNow closure") {
     val expectedReturnValue = "did something"
     val actualReturnValue = Timestamp.withArtificialNow(100) {
       assert(Timestamp().getTime == 100)
@@ -133,8 +126,7 @@ class TimestampTest extends TestNGSuite with ShouldMatchers {
     assert(Timestamp().getTime != 100)
   }
 
-  @Test
-  def testBeforeAfter {
+  test("Before and after") {
     Timestamp(100) before Timestamp(200) should be (true)
     Timestamp(200) after Timestamp(100) should be (true)
     Timestamp(100) before Timestamp(100) should be (false)

@@ -1,14 +1,12 @@
 package com.gilt.gfc.time
 
 import collection.mutable.ArrayBuffer
-import org.scalatest.testng.TestNGSuite
-import org.scalatest.matchers.ShouldMatchers
-import org.testng.annotations.Test
+import org.scalatest.{FunSuite, Matchers}
 
 /**
  * Tests the Timer trait & object.
  */
-class TimerTest extends TestNGSuite with ShouldMatchers {
+class TimerTest extends FunSuite with Matchers {
 
   class AutoAdvancingClock(incr: Long) {
     private var seed = 0L
@@ -19,8 +17,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     }
   }
 
-  @Test
-  def testBasics() {
+  test("Basics") {
     val timer = new Timer {
       val clock = new AutoAdvancingClock(1)
       def nanoClock() = clock()
@@ -30,8 +27,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     times.head should equal(1)
   }
 
-  @Test
-  def testLoggingWorks() {
+  test("Logging works") {
     // just tests that the api is kind of reasonable
     val timer = new Timer {
       val clock = new AutoAdvancingClock(1)
@@ -47,8 +43,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     msg should equal("Operation took 1 ns")
   }
 
-  @Test
-  def testTimePretty() {
+  test("timePretty") {
     // just tests that the api is kind of reasonable
     val timer = new Timer {
       val clock = new AutoAdvancingClock(1)
@@ -61,8 +56,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     msg should equal("1 ns")
   }
 
-  @Test
-  def testTimeFmtStr() {
+  test("TimePrettyFormat") {
     // just tests that the api is kind of reasonable
     val timer = new Timer {
       val clock = new AutoAdvancingClock(1)
@@ -75,8 +69,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     msg should equal("This took 1 ns")
   }
 
-  @Test
-  def testFmt() {
+  test("Format") {
     Timer.pretty(1) should equal ("1 ns")
     Timer.pretty(100) should equal ("100 ns")
 
@@ -102,8 +95,7 @@ class TimerTest extends TestNGSuite with ShouldMatchers {
     Timer.pretty(-3920101100000001L) should equal ("-3920101.100 s")
   }
 
-  @Test
-  def realTiming() {
+  test("Real timing") {
     // should be within 10% of really sleeping 1 second
     // Diabled check due to intermitted failures in jenkins. Instead printing an exception stack trace.
     import Timer.{time, pretty}

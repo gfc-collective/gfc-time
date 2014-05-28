@@ -4,7 +4,7 @@ import java.lang.{Long => JLong}
 import java.sql.{Timestamp => SqlTimestamp}
 import java.util.{TimeZone, Date}
 import java.text.{SimpleDateFormat, DateFormat}
-import scala.reflect.BeanProperty
+import scala.beans.BeanProperty
 
 /**
  * Immutable wrapper around a timestamp. Represents time the same as {@link java.util.Date}.
