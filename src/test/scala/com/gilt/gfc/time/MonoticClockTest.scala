@@ -45,8 +45,6 @@ class MonoticClockTest extends FunSuite with Matchers {
       override def millisecondClock(): Long = 0
     }
     (1 to 999999) foreach { _ => clock.currentTimeNanos() }
-    evaluating {
-      clock.currentTimeNanos()
-    } should produce[AssertionError]
+    an [AssertionError] should be thrownBy clock.currentTimeNanos()
   }
 }
