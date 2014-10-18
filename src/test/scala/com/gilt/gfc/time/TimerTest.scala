@@ -3,6 +3,9 @@ package com.gilt.gfc.time
 import collection.mutable.ArrayBuffer
 import org.scalatest.{FunSuite, Matchers}
 
+import scala.concurrent.duration._
+import scala.concurrent.{Promise, Await, Future}
+
 /**
  * Tests the Timer trait & object.
  */
@@ -67,6 +70,34 @@ class TimerTest extends FunSuite with Matchers {
     var msg = ""
     timePrettyFormat("This took %s", msg = _)("lalalalalalalala") should equal("lalalalalalalala")
     msg should equal("This took 1 ns")
+  }
+
+  test("TimeFuturePretty") {
+    // just tests that the api is kind of reasonable
+    val timer = new Timer {
+      val clock = new AutoAdvancingClock(1)
+      def nanoClock() = clock()
+    }
+    import timer.timeFuturePretty
+    import scala.concurrent.ExecutionContext.Implicits.global
+
+    val prom = Promise[String]
+    Await.result(timeFuturePretty(prom.success(_))(Future.successful("lalalalalalala")), Duration.Inf) should be ("lalalalalalala")
+    Await.result(prom.future, 1.second) should equal("1 ns")
+  }
+
+  test("TimeFuturePrettyFormat") {
+    // just tests that the api is kind of reasonable
+    val timer = new Timer {
+      val clock = new AutoAdvancingClock(1)
+      def nanoClock() = clock()
+    }
+    import timer.timeFuturePrettyFormat
+    import scala.concurrent.ExecutionContext.Implicits.global
+
+    val prom = Promise[String]
+    Await.result(timeFuturePrettyFormat("This took %s", prom.success(_))(Future.successful("lalalalalalalala")), Duration.Inf) should equal("lalalalalalalala")
+    Await.result(prom.future, 1.second) should equal("This took 1 ns")
   }
 
   test("Format") {
