@@ -10,8 +10,8 @@ import scala.beans.BeanProperty
  * Immutable wrapper around a timestamp. Represents time the same as {@link java.util.Date}.
  */
 object Timestamp {
-  private val IsoFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-  private val JsFormat = "EEE, d MMM yyyy HH:mm:ss z"
+  val IsoFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+  val JsFormat = "EEE, d MMM yyyy HH:mm:ss z"
   private val IsoFormatTls: ThreadLocal[DateFormat] = new ThreadLocal()
   private val JsFormatTls: ThreadLocal[DateFormat] = new ThreadLocal()
 
