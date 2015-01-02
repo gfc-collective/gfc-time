@@ -7,8 +7,7 @@ scalaVersion := "2.11.4"
 crossScalaVersions := Seq("2.11.4", "2.10.4")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.3" % "test",
-  "org.scalacheck" %% "scalacheck" % "1.12.1" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.3" % "test"
 )
 
 publishMavenStyle := true
