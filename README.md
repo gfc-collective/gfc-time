@@ -1,4 +1,5 @@
-# gfc-time
+# gfc-time [![Build Status](https://travis-ci.org/gilt/gfc-time.svg?branch=master)](https://travis-ci.org/gilt/gfc-time) [![Coverage Status](https://coveralls.io/repos/gilt/gfc-time/badge.svg?branch=master&service=github)](https://coveralls.io/github/gilt/gfc-time?branch=master)
+
 
 A library that contains time related scala utility classes. Part of the gilt foundation classes.
 
