@@ -5,6 +5,7 @@ import org.scalatest.{FunSuite, Matchers}
 
 import scala.concurrent.duration._
 import scala.concurrent.{Promise, Await, Future}
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Tests the Timer trait & object.
@@ -70,6 +71,20 @@ class TimerTest extends FunSuite with Matchers {
     var msg = ""
     timePrettyFormat("This took %s", msg = _)("lalalalalalalala") should equal("lalalalalalalala")
     msg should equal("This took 1 ns")
+  }
+
+  test("TimeFuture") {
+    // just test the side effect is executed only once
+    import scala.concurrent.ExecutionContext.Implicits.global
+
+    val sideEffectsCount = new AtomicInteger()
+    def task() = Future.successful {
+      sideEffectsCount.incrementAndGet()
+      "lalalalalalala"
+    }
+
+    Await.result(Timer.timeFuture(_ => Unit)(task), Duration.Inf) should be("lalalalalalala")
+    sideEffectsCount.intValue() should equal(1)
   }
 
   test("TimeFuturePretty") {

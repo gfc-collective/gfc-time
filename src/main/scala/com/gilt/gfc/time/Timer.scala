@@ -49,8 +49,9 @@ trait Timer {
    */
   def timeFuture[T](report: Long => Unit)(future: => Future[T])(implicit ec: ExecutionContext): Future[T] = {
     val start = nanoClock()
-    future.onComplete(_ => report(nanoClock()- start))
-    future
+    val fut = future
+    fut.onComplete(_ => report(nanoClock()- start))
+    fut
   }
 
   /**
