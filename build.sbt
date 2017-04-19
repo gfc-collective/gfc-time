@@ -11,7 +11,7 @@ scalacOptions += "-target:jvm-1.7"
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.0.0" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
 
 releaseCrossBuild := true
