@@ -2,16 +2,16 @@ name := "gfc-time"
 
 organization := "com.gilt"
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.12.4"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.12.4", "2.10.6")
+crossScalaVersions := Seq(scalaVersion.value, "2.11.11", "2.10.6")
 
 scalacOptions += "-target:jvm-1.7"
 
 javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.0.3" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 )
 
 releaseCrossBuild := true
