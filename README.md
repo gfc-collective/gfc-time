@@ -60,6 +60,6 @@ Various utilities for timing & reporting on blocks of code and scala Futures.
 A immutable lightweight wrapper around a millisecond timestamp.
 
 ## License
-Copyright 2017 Gilt Groupe, Inc.
+Copyright 2018 Gilt Groupe, Inc.
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
