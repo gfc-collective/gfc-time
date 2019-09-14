@@ -27,7 +27,7 @@ class TimerTest extends FunSuite with Matchers {
       def nanoClock() = clock()
     }
     val times = new ArrayBuffer[Long]()
-    timer.time(times.append(_))(Unit)
+    timer.time(times.append(_))()
     times.head should equal(1)
   }
 
@@ -83,7 +83,7 @@ class TimerTest extends FunSuite with Matchers {
       "lalalalalalala"
     }
 
-    Await.result(Timer.timeFuture(_ => Unit)(task), Duration.Inf) should be("lalalalalalala")
+    Await.result(Timer.timeFuture(_ => ())(task), Duration.Inf) should be("lalalalalalala")
     sideEffectsCount.intValue() should equal(1)
   }
 
