@@ -1,4 +1,4 @@
-package com.gilt.gfc.time
+package org.gfccollective.gfc.time
 
 import collection.mutable.ArrayBuffer
 import org.scalatest.{FunSuite, Matchers}
