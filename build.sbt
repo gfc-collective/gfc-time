@@ -1,10 +1,10 @@
 name := "gfc-time"
 
-organization := "com.gilt"
+organization := "org.gfccollective"
 
-scalaVersion := "2.12.10"
+scalaVersion := "2.13.1"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.13.1")
+crossScalaVersions := Seq(scalaVersion.value, "2.11.12", "2.12.10")
 
 scalacOptions += "-target:jvm-1.8"
 
@@ -32,14 +32,14 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
-licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gilt/gfc-time/master/LICENSE"))
+licenses := Seq("Apache-style" -> url("https://raw.githubusercontent.com/gfc-collective/gfc-time/master/LICENSE"))
 
-homepage := Some(url("https://github.com/gilt/gfc-time"))
+homepage := Some(url("https://github.com/gfc-collective/gfc-time"))
 
 pomExtra := (
   <scm>
-    <url>https://github.com/gilt/gfc-time.git</url>
-    <connection>scm:git:git@github.com:gilt/gfc-time.git</connection>
+    <url>https://github.com/gfc-collective/gfc-time</url>
+    <connection>scm:git:git@github.com/gfc-collective/gfc-time.git</connection>
   </scm>
   <developers>
     <developer>
