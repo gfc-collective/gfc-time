@@ -2,9 +2,10 @@ package org.gfccollective.gfc.time
 
 import java.sql.{Timestamp => SqlTimestamp}
 import java.util.Date
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
-class TimestampTest extends FunSuite with Matchers {
+class TimestampTest extends AnyFunSuite with Matchers {
 
   test("Basics") {
     Timestamp.setArtificialNow(0);  // disable anything somebody else may have turned on

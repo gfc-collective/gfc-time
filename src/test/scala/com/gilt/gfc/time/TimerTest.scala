@@ -1,16 +1,17 @@
 package org.gfccollective.gfc.time
 
 import collection.mutable.ArrayBuffer
-import org.scalatest.{FunSuite, Matchers}
 
 import scala.concurrent.duration._
 import scala.concurrent.{Promise, Await, Future}
 import java.util.concurrent.atomic.AtomicInteger
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
 /**
  * Tests the Timer trait & object.
  */
-class TimerTest extends FunSuite with Matchers {
+class TimerTest extends AnyFunSuite with Matchers {
 
   class AutoAdvancingClock(incr: Long) {
     private var seed = 0L
