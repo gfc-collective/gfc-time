@@ -1,4 +1,4 @@
-package org.gfccollective.gfc.time
+package org.gfccollective.time
 
 import scala.concurrent.{ExecutionContext, Future}
 
