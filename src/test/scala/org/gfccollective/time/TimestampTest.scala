@@ -1,4 +1,4 @@
-package org.gfccollective.gfc.time
+package org.gfccollective.time
 
 import java.sql.{Timestamp => SqlTimestamp}
 import java.util.Date
