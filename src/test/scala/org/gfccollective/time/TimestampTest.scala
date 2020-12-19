@@ -14,7 +14,7 @@ class TimestampTest extends AnyFunSuite with Matchers {
     val after = new Timestamp(System.currentTimeMillis())
 
     assert(after.toDate.after(before.toDate))
-    assert(before.getTime < after.getTime)
+    assert(before.time < after.time)
     assert(before.## != after.##)
     new Timestamp(0).toString should be("Thu, 1 Jan 1970 00:00:00 UTC")
     assert(before.compareTo(after) < 0)
@@ -24,10 +24,10 @@ class TimestampTest extends AnyFunSuite with Matchers {
     val first = new Timestamp()
     Thread.sleep(1)
     val second = new Timestamp()
-    assert(first.getTime < second.getTime)
+    assert(first.time < second.time)
 
-    before.toDate should be(new Date(before.getTime))
-    before.toSqlTimestamp should be(new SqlTimestamp(before.getTime))
+    before.toDate should be(new Date(before.time))
+    before.toSqlTimestamp should be(new SqlTimestamp(before.time))
     assert (before == before.toDate)
   }
 
@@ -36,7 +36,6 @@ class TimestampTest extends AnyFunSuite with Matchers {
     val after  = new Timestamp(654321L)
     assert(!before.equals(123456L)) // equals does not compare with other types
     assert(before == 123456L)       // ... but == does
-    assert(before != 654321L)
     assert(before.equals(Timestamp(123456L)))
     assert(before == Timestamp(123456L))
     assert(before != after)
@@ -111,20 +110,21 @@ class TimestampTest extends AnyFunSuite with Matchers {
     Timestamp(200) == new SqlTimestamp(100) should be(false)
     Timestamp(200) == new SqlTimestamp(200) should be(true)
 
-    Timestamp(200) == "200" should be(false)
+    Timestamp(200).equals("200") should be(false)
+
     Timestamp(200) == null should be(false)
   }
 
   test("ArtificialNow closure") {
     val expectedReturnValue = "did something"
     val actualReturnValue = Timestamp.withArtificialNow(100) {
-      assert(Timestamp().getTime == 100)
-      assert(Timestamp(200).getTime == 200)
+      assert(Timestamp().time == 100)
+      assert(Timestamp(200).time == 200)
       expectedReturnValue
     }
 
     actualReturnValue should be (expectedReturnValue)
-    assert(Timestamp().getTime != 100)
+    assert(Timestamp().time != 100)
   }
 
   test("Before and after") {
