@@ -1,4 +1,4 @@
-# gfc-time [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-time_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-time_2.12) [![Build Status](https://github.com/gfc-collective/gfc-time/workflows/Scala%20CI/badge.svg)](https://github.com/gfc-collective/gfc-time/actions) [![Coverage Status](https://coveralls.io/repos/gfc-collective/gfc-time/badge.svg?branch=master&service=github)](https://coveralls.io/github/gfc-collective/gfc-time?branch=master) 
+# gfc-time [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-time_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-time_2.12) [![Build Status](https://github.com/gfc-collective/gfc-time/workflows/Scala%20CI/badge.svg)](https://github.com/gfc-collective/gfc-time/actions) [![Coverage Status](https://coveralls.io/repos/gfc-collective/gfc-time/badge.svg?branch=main&service=github)](https://coveralls.io/github/gfc-collective/gfc-time?branch=main)
 
 
 A library that contains time related scala utility classes.
