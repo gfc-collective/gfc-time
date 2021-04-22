@@ -4,7 +4,7 @@ organization := "org.gfccollective"
 
 scalaVersion := "2.12.13"
 
-crossScalaVersions := Seq(scalaVersion.value, "2.13.5", "3.0.0-RC2")
+crossScalaVersions := Seq(scalaVersion.value, "2.13.5", "3.0.0-RC3")
 
 scalacOptions += "-target:jvm-1.8"
 
@@ -20,7 +20,7 @@ scalacOptions ++= {
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.2.7" % Test
+  "org.scalatest" %% "scalatest" % "3.2.8" % Test
 )
 
 releaseCrossBuild := true
