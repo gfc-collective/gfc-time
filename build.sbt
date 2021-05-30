@@ -37,7 +37,7 @@ publishTo := {
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
 
-publishArtifact in Test := false
+Test / publishArtifact := false
 
 pomIncludeRepository := { _ => false }
 
